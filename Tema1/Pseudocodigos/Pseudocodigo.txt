@@ -1,0 +1,22 @@
+INICIO
+
+Definir función matemática que queremos evaluar
+Establecer precisión deseada (tolerancia)
+Definir número de cifras significativas
+
+Para cada operación:
+    Aplicar redondeo a las cifras significativas
+    Verificar si el error de truncamiento es aceptable
+    Calcular valor exacto si es posible
+    Comparar resultado con el exacto para obtener error de exactitud
+    Repetir varias veces y comparar resultados para estimar precisión
+
+Si datos provienen del usuario:
+    Validar si tienen errores de entrada (error de datos)
+
+Si se usa una simplificación matemática:
+    Anotar limitaciones del modelo (error de modelado)
+
+Mostrar los resultados y los errores correspondientes
+
+FIN
