@@ -1,0 +1,27 @@
+'''
+Enunciado:
+Intentar hallar una raíz de 𝑓(𝑥)=𝑥^2+1en el intervalo [0, 2].
+
+Objetivo:
+Probar el comportamiento del método de bisección cuando no hay raíz real en el intervalo.
+'''
+def f(x):
+    return x**2 + 1
+
+def biseccion(a, b, tol):
+    if f(a) * f(b) >= 0:
+        return "No se garantiza raíz"
+    while (b - a) / 2 > tol:
+        c = (a + b) / 2
+        if f(c) == 0:
+            return c
+        elif f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+    return (a + b) / 2
+
+raiz = biseccion(0, 2, 1e-5)
+print("Raíz aproximada:", raiz)
+
+# Interpretación: La función no tiene raíces reales, por lo que el método de bisección no puede encontrar una raíz en el intervalo dado.
