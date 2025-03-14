@@ -1,0 +1,27 @@
+'''
+Enunciado:
+Interpolar el valor de una función cuadrática 𝑓(𝑥)=𝑥^2 usando los puntos (1,1), (2,4), (3,9), para calcular el valor en x=1.5.
+
+Objetivo:
+Aplicar la fórmula de interpolación de Lagrange.
+
+'''
+
+def lagrange(xi, yi, x):
+    n = len(xi)
+    resultado = 0
+    for i in range(n):
+        termino = yi[i]
+        for j in range(n):
+            if i != j:
+                termino *= (x - xi[j]) / (xi[i] - xi[j])
+        resultado += termino
+    return resultado
+
+x_pts = [1, 2, 3]
+y_pts = [1, 4, 9]
+valor = lagrange(x_pts, y_pts, 1.5)
+print("Valor interpolado en x=1.5:", valor)
+
+
+# Interpretación: La interpolación de Lagrange permite estimar el valor de la función cuadrática en x=1.5 utilizando los puntos dados, obteniendo un resultado cercano al valor real de 2.25.

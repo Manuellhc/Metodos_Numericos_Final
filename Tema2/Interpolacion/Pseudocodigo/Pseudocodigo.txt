@@ -1,0 +1,14 @@
+Inicio
+    Leer n, vectores xi, yi
+    Leer x
+    L = 0
+    Para i en 0 a n-1
+        term = yi
+        Para j en 0 a n-1
+            Si j != i
+                term = term * (x - xj) / (xi - xj)
+        FinPara
+        L = L + term
+    FinPara
+    Escribir L
+Fin

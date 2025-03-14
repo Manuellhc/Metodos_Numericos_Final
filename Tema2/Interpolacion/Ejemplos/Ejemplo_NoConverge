@@ -1,0 +1,30 @@
+''''
+Interpolar usando puntos repetidos: (1,1), (1,4), (3,9) en x=2.
+
+Objetivo:
+Probar cómo se comporta Lagrange con datos inválidos (puntos x repetidos).
+
+'''
+
+def lagrange(xi, yi, x):
+    n = len(xi)
+    resultado = 0
+    for i in range(n):
+        termino = yi[i]
+        for j in range(n):
+            if i != j:
+                termino *= (x - xi[j]) / (xi[i] - xi[j])
+        resultado += termino
+    return resultado
+
+x_pts = [1, 1, 3]
+y_pts = [1, 4, 9]
+
+try:
+    valor = lagrange(x_pts, y_pts, 2)
+    print("Valor interpolado:", valor)
+except ZeroDivisionError:
+    print("Error: puntos x repetidos causan división por cero")
+
+# Interpretación: Al intentar interpolar con puntos x repetidos, se produce un error de división por cero, lo que indica que la función Lagrange no puede manejar datos inválidos de esta manera.
+# Esto es un ejemplo de cómo manejar errores en la interpolación con puntos repetidos.
