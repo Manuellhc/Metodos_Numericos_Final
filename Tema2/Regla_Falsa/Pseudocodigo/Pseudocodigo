@@ -1,0 +1,20 @@
+Inicio
+    Definir función f(x)
+    Leer a, b, tolerancia
+    Si f(a) * f(b) >= 0
+        Escribir "No se garantiza una raíz en el intervalo"
+        Terminar
+    FinSi
+    Repetir
+        c = b - (f(b) * (a - b)) / (f(a) - f(b))
+        Si f(c) == 0
+            Terminar
+        FinSi
+        Si f(a) * f(c) < 0
+            b = c
+        Sino
+            a = c
+        FinSi
+    Hasta que |f(c)| < tolerancia
+    Escribir "La raíz aproximada es: ", c
+Fin

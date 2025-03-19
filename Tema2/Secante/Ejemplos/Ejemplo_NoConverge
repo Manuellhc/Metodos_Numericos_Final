@@ -1,0 +1,28 @@
+'''
+Enunciado:Usar 𝑥0=1 y 𝑥1=1 para encontrar la raíz de 𝑓(𝑥)=𝑥2−2.
+
+Objetivo:
+Ver qué ocurre si se dan puntos iniciales iguales.
+
+'''
+def f(x):
+    return x**2 - 2
+
+def secante(x0, x1, tol):
+    while abs(f(x1)) > tol:
+        try:
+            x2 = x1 - f(x1)*(x1 - x0)/(f(x1) - f(x0))
+        except ZeroDivisionError:
+            return "División por cero"
+        x0, x1 = x1, x2
+    return x1
+
+raiz = secante(1, 1, 1e-5)
+print("Raíz aproximada:", raiz)
+
+
+# Interpretación: Al iniciar con puntos iguales, el método de la secante no puede avanzar porque la pendiente es cero (división por cero).
+# Esto provoca que el método no pueda encontrar una raíz, ya que no hay un cambio en los puntos iniciales para calcular la siguiente aproximación.
+# La secante requiere que los puntos iniciales sean distintos para poder calcular la pendiente y avanzar hacia la raíz.
+# La salida indica que se ha producido una división por cero, lo que es un comportamiento esperado en este caso.
+# La secante es un método iterativo que utiliza dos puntos iniciales para aproximar la raíz de una función.

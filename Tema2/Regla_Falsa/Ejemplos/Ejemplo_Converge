@@ -1,0 +1,29 @@
+'''
+Enunciado:
+Encontrar la raíz de 𝑓(𝑥)=𝑥^3−𝑥 −2 entre [1, 2] con tolerancia de 10−5  usando la regla falsa.
+
+Objetivo:
+Aplicar regla falsa para hallar una raíz de la función.
+
+'''
+def f(x):
+    return x**3 - x - 2
+
+def regla_falsa(a, b, tol):
+    if f(a) * f(b) >= 0:
+        return "No se garantiza raíz"
+    c = a
+    while True:
+        c = b - f(b)*(a - b)/(f(a) - f(b))
+        if abs(f(c)) < tol:
+            return c
+        elif f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+
+raiz = regla_falsa(1, 2, 1e-5)
+print("Raíz aproximada:", raiz)
+
+# Interpretación: La regla falsa permite encontrar una raíz de la función en el intervalo dado, convergiendo a un valor cercano a la raíz real con la tolerancia especificada.
+# La función tiene una raíz real entre 1 y 2, y la regla falsa logra aproximarla correctamente.

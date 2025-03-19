@@ -1,0 +1,28 @@
+'''
+Enunciado: Buscar una raíz de 𝑓(𝑥)=𝑥2+1 en [0, 2].
+
+Objetivo:
+Observar el comportamiento de la regla falsa sin cambio de signo.
+
+'''
+def f(x):
+    return x**2 + 1
+
+def regla_falsa(a, b, tol):
+    if f(a) * f(b) >= 0:
+        return "No se garantiza raíz"
+    c = a
+    while True:
+        c = b - f(b)*(a - b)/(f(a) - f(b))
+        if abs(f(c)) < tol:
+            return c
+        elif f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+
+raiz = regla_falsa(0, 2, 1e-5)
+print("Raíz aproximada:", raiz)
+
+# Interpretación: La función no tiene raíces reales, por lo que la regla falsa no puede encontrar una raíz en el intervalo dado.
+# La salida indica que no se garantiza una raíz, lo que es consistente con la naturaleza de la función.

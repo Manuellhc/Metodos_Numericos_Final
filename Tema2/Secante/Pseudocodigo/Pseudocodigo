@@ -1,0 +1,10 @@
+Inicio
+    Definir función f(x)
+    Leer x0, x1, tolerancia
+    Repetir
+        x2 = x1 - f(x1)*(x1 - x0)/(f(x1) - f(x0))
+        x0 = x1
+        x1 = x2
+    Hasta que |f(x2)| < tolerancia
+    Escribir x2
+Fin
