@@ -1,0 +1,8 @@
+Para cada fila i desde 1 hasta n:
+    Para cada fila j > i:
+        Factor = A[j][i] / A[i][i]
+        Para cada columna k:
+            A[j][k] = A[j][k] - Factor * A[i][k]
+        b[j] = b[j] - Factor * b[i]
+
+Resolver x[n-1] hasta x[0] por sustitución regresiva

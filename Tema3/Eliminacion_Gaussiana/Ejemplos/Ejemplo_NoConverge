@@ -1,0 +1,50 @@
+'''
+Enunciado: 
+Resolver el sitema de ecuaciones: 
+
+x+y=2
+2x=2y=4
+
+
+Objetivo:
+Hallar los valores de x e y que satisfacen el sistema de ecuaciones lineales.
+
+'''
+import numpy as np
+
+def gauss_elimination(A, b):
+    A = np.array(A, float)
+    b = np.array(b, float)
+    n = len(b)
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            factor = A[j][i] / A[i][i]
+            for k in range(i, n):
+                A[j][k] -= factor * A[i][k]
+            b[j] -= factor * b[i]
+
+    x = np.zeros(n)
+    for i in range(n - 1, -1, -1):
+        suma = sum(A[i][j] * x[j] for j in range(i + 1, n))
+        x[i] = (b[i] - suma) / A[i][i]
+    return x
+
+# Uso de la función
+A = [[1, 2], [1, 2]]
+b = [2, 4]
+
+
+resultado = gauss_elimination(A, b)
+print("Resultado:", resultado)
+
+
+
+
+
+# Interpretación: # El método de eliminación gaussiana ha intentado resolver el sistema de ecuaciones lineales, pero debido a que las filas son linealmente dependientes (la segunda fila es un múltiplo de la primera), el sistema no tiene una solución única.
+# En este caso, el resultado muestra que el sistema es indeterminado, lo que significa que hay infinitas soluciones posibles.
+
+
+
+
