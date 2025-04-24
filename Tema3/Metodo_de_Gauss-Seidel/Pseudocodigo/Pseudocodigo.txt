@@ -1,0 +1,4 @@
+Inicializar x0
+Repetir hasta convergencia:
+    Para cada i:
+        x[i] = (b[i] - suma de A[i][j]*x[j] usando los más recientes) / A[i][i]

@@ -1,0 +1,5 @@
+Inicializar x0
+Repetir hasta convergencia:
+    Para cada i:
+        x[i] = (b[i] - suma(A[i][j]*x0[j] para j != i)) / A[i][i]
+    Actualizar x0

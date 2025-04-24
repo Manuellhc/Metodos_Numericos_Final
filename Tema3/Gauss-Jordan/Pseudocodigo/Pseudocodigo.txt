@@ -1,0 +1,5 @@
+Para cada fila i desde 1 hasta n:
+    Dividir la fila i por A[i][i]
+    Para cada fila j != i:
+        Factor = A[j][i]
+        Restar Factor * fila i de la fila j
