@@ -1,0 +1,36 @@
+'''
+Enunciado: 
+Aproximar la derivada de la función f(x)=∣x∣ en 𝑥=0 usando la fórmula de tres puntos con ℎ=0.01
+
+
+
+Objetivo:
+Observar el comportamiento de la fórmula en un punto no diferenciable.
+
+'''
+
+# Método de tres puntos para aproximar la derivada de una función
+def derivada_tres_puntos(f, x, h):
+    return (f(x + h) - f(x - h)) / (2 * h)
+
+def f(x):
+    return abs(x)
+
+x = 0
+h = 0.01
+derivada_aproximada = derivada_tres_puntos(f, x, h)
+
+print(f"Derivada aproximada: {derivada_aproximada}")
+
+
+
+
+
+
+'''
+Interpretación: La derivada aproximada no converge a un valor único, lo que indica que la función no es diferenciable en x=0. La fórmula de tres puntos no proporciona una estimación válida en puntos donde la función presenta discontinuidades o no es suave.
+'''
+
+
+
+

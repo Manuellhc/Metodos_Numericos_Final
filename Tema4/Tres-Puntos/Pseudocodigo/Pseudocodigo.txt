@@ -1,0 +1,6 @@
+Entrada: función f, punto x, paso h
+Calcular f(x+h)
+Calcular f(x-h)
+Aproximar derivada: (f(x+h) - f(x-h)) / (2h)
+Salida: derivada aproximada
+

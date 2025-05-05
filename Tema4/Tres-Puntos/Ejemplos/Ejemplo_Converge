@@ -1,0 +1,38 @@
+'''
+Enunciado: 
+Aproximar la derivada de 
+
+f(x)=sin(x) en 𝑥=𝜋/4​ usando la fórmula de tres puntos con ℎ=0.01 
+
+Objetivo:
+Comparar la derivada numérica con la derivada analítica 𝑓′(𝑥)=cos⁡(𝑥)
+
+'''
+import math
+
+# Método de tres puntos para aproximar la derivada de una función
+def derivada_tres_puntos(f, x, h):
+    return (f(x + h) - f(x - h)) / (2 * h)
+
+
+def f(x):
+    return math.sin(x)
+
+x = math.pi / 4
+h = 0.01
+derivada_aproximada = derivada_tres_puntos(f, x, h)
+derivada_exacta = math.cos(x)
+
+print(f"Derivada aproximada: {derivada_aproximada}")
+print(f"Derivada exacta: {derivada_exacta}")
+
+
+
+
+
+
+# Interpretación: La derivada aproximada es muy cercana al valor exacto, lo que indica que la fórmula de tres puntos proporciona una buena estimación para funciones suaves.
+
+
+
+
