@@ -8,10 +8,11 @@ Formulas:
 
     Diferencia hacia adelante:
     
-        ![alt text](image-1.png)
+![alt text](image-1.png)
 
     Diferencia hacia atras:
-        ![alt text](image-2.png)
+    
+![alt text](image-2.png)
 
 
 
