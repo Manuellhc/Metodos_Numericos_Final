@@ -1,0 +1,42 @@
+'''
+Enunciado: 
+Aproximar la derivada de f(x)=cos(x) en 𝑥=𝜋/3 usando la fórmula de cinco puntos con ℎ=0.01
+
+
+
+Objetivo:
+Comparar el valor numérico con el valor exacto 𝑓′(𝑥)=−sin⁡(𝑥)
+
+
+'''
+import math
+
+# Método de cinco puntos para aproximar la derivada de una función
+def derivada_cinco_puntos(f, x, h):
+    return (-f(x + 2*h) + 8*f(x + h) - 8*f(x - h) + f(x - 2*h)) / (12 * h)
+
+def f(x):
+    return math.cos(x)
+
+x = math.pi / 3
+h = 0.01
+aproximacion = derivada_cinco_puntos(f, x, h)
+exacta = -math.sin(x)
+
+print(f"Derivada aproximada: {aproximacion}")
+print(f"Derivada exacta: {exacta}")
+
+
+
+
+
+
+
+# Interpretación: La derivada aproximada es muy cercana al valor exacto, lo que indica que la fórmula de cinco puntos proporciona una buena estimación para funciones suaves. La mayor precisión de la fórmula de cinco puntos en comparación con la de tres puntos se debe a que utiliza más información sobre el comportamiento de la función alrededor del punto de interés.
+# La fórmula de cinco puntos es más precisa que la de tres puntos, especialmente para funciones suaves, ya que considera más puntos cercanos al punto donde se evalúa la derivada.
+
+
+
+
+
+

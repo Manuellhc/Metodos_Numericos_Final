@@ -1,0 +1,42 @@
+'''
+Enunciado: 
+Aproximar la derivada de f(x)= ln(x) en 𝑥=0.1 usando la fórmula de cinco puntos con ℎ=0.01
+
+
+
+Objetivo:
+Observar qué ocurre al aplicar el método cerca de una discontinuidad o dominio restringido.
+
+
+'''
+import math
+
+def derivada_cinco_puntos(f, x, h):
+    return (-f(x + 2*h) + 8*f(x + h) - 8*f(x - h) + f(x - 2*h)) / (12 * h)
+
+def f(x):
+    return math.sqrt(x)  # Raíz cuadrada (dominio: x >= 0)
+
+x = 0.0
+h = 0.1
+
+try:
+    resultado = derivada_cinco_puntos(f, x, h)
+    print(f"Derivada aproximada: {resultado}")
+except Exception as e:
+    print("Error:", e)
+
+
+
+
+
+
+
+# Interpretación : La derivada aproximada no converge a un valor válido, lo que indica que la función no es diferenciable en x=0. La fórmula de cinco puntos no proporciona una estimación válida en puntos donde la función presenta discontinuidades o no es suave. En este caso, la raíz cuadrada tiene un dominio restringido y no es diferenciable en x=0.
+# La fórmula de cinco puntos es más sensible a las discontinuidades y no proporciona una estimación válida en puntos donde la función no es suave.
+
+
+
+
+
+
