@@ -1,0 +1,8 @@
+Entrada: función f, límites a y b, número de intervalos n
+Calcular h = (b - a) / n
+Inicializar suma = f(a) + f(b)
+Para i de 1 a n-1:
+    suma += 2 * f(a + i*h)
+Multiplicar resultado por h/2
+Salida: suma * h / 2
+

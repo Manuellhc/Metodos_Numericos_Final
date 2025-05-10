@@ -1,0 +1,36 @@
+'''
+Enunciado: 
+Aproximar la integral de 𝑓(𝑥)= 1/X  en el intervalo [0,1] usando 𝑛=100 subintervalos.
+
+
+Objetivo:
+Comparar con el valor real aproximado de la integral Y Observar el comportamiento ante una singularidad en el punto
+'''
+import math
+
+def f(x):
+    return 1 / x
+
+# Método del trapecio para aproximar la integral de una función
+def metodo_trapecio(f, a, b, n):
+    h = (b - a) / n
+    suma = f(a) + f(b)
+    for i in range(1, n):
+        suma += 2 * f(a + i * h)
+    return (h / 2) * suma
+
+try:
+    resultado = metodo_trapecio(f, 0, 1, 100)
+    print("Aproximación:", resultado)
+except Exception as e:
+    print("Error:", e)
+
+
+
+
+
+# Interpretación: La aproximación de la integral no converge a un valor válido debido a la singularidad en x=0. El método del trapecio no es adecuado para funciones con singularidades o discontinuidades en el intervalo de integración. En este caso, la función 1/x tiene una singularidad en x=0, lo que provoca que la integral diverja.
+# La singularidad en el punto x=0 impide que el método del trapecio proporcione una estimación válida de la integral.
+
+
+
