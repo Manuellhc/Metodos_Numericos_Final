@@ -1,0 +1,52 @@
+'''
+Enunciado: 
+Aproximar la integral de f(x)= 1/X en [0,1] usando 𝑛=10 subintervalos.
+
+ 
+Objetivo:
+Observar el comportamiento ante una singularidad en x=0.
+
+'''
+import math
+def f(x):
+    return 1 / x
+
+
+def regla_simpson(f, a, b, n):
+    if n % 2 != 0:
+        raise ValueError("El número de intervalos (n) debe ser par.")
+
+    h = (b - a) / n
+    suma = f(a) + f(b)
+
+    for i in range(1, n):
+        x = a + i * h
+        if i % 2 == 0:
+            suma += 2 * f(x)
+        else:
+            suma += 4 * f(x)
+
+    return (h / 3) * suma
+
+
+try:
+    resultado = regla_simpson(f, 0, 1, 10)
+    print("Aproximación:", resultado)
+except Exception as e:
+    print("Error:", e)
+
+
+
+
+
+
+
+
+
+
+
+
+# Interpretación: La aproximación de la integral no converge a un valor válido debido a la singularidad en x=0. El método de Simpson no es adecuado para funciones con singularidades o discontinuidades en el intervalo de integración. En este caso, la función 1/x tiene una singularidad en x=0, lo que provoca que la integral diverja.
+# La singularidad en el punto x=0 impide que el método de Simpson proporcione una estimación válida de la integral.
+
+
