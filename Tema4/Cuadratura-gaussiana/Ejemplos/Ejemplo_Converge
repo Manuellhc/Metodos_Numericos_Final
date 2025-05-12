@@ -1,0 +1,40 @@
+'''
+Enunciado: 
+Aproximar la integral de 𝑓(𝑥)= e^x
+
+
+Objetivo:
+Comparar con el valor real aproximado de la integral 
+'''
+
+import math
+# Definición de la función a integrar
+def f(x):
+    return math.exp(x)
+
+# Método de cuadratura gaussiana de 2 puntos para aproximar la integral de una función
+def cuadratura_gaussiana_2p(f, a, b):
+    # Nodos y pesos para n=2 en [-1, 1]
+    t1 = -1 / math.sqrt(3)
+    t2 = 1 / math.sqrt(3)
+    w1 = w2 = 1
+
+    # Cambio de variable
+    x1 = ((b - a) / 2) * t1 + (b + a) / 2
+    x2 = ((b - a) / 2) * t2 + (b + a) / 2
+
+    resultado = ((b - a) / 2) * (w1 * f(x1) + w2 * f(x2))
+    return resultado
+
+resultado = cuadratura_gaussiana_2p(f, 0, 2)
+print("Aproximación:", resultado)
+
+
+
+
+
+# Interpretación: # La aproximación de la integral es cercana al valor real, lo que indica que el método de cuadratura gaussiana es efectivo para funciones suaves. La precisión del método depende del número de puntos utilizados; en este caso, 2 puntos proporcionan una buena aproximación.
+# La precisión del método de cuadratura gaussiana mejora con un mayor número de puntos, especialmente para funciones suaves.
+
+
+

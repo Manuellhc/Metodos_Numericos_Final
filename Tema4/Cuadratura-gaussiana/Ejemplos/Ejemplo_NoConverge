@@ -1,0 +1,41 @@
+'''
+Enunciado: 
+Aproximar la integral de 𝑓(𝑥)= 1/x x=0
+
+
+Objetivo:
+Observar cómo el método falla ante discontinuidades.
+'''
+
+import math
+
+
+
+def f(x):
+    return 1 / x
+
+def cuadratura_gaussiana_2p(f, a, b):
+    # Nodos y pesos para n=2 en [-1, 1]
+    t1 = -1 / math.sqrt(3)
+    t2 = 1 / math.sqrt(3)
+    w1 = w2 = 1
+
+    # Cambio de variable
+    x1 = ((b - a) / 2) * t1 + (b + a) / 2
+    x2 = ((b - a) / 2) * t2 + (b + a) / 2
+
+    resultado = ((b - a) / 2) * (w1 * f(x1) + w2 * f(x2))
+    return resultado
+
+try:
+    resultado = cuadratura_gaussiana_2p(f, 0, 1)
+    print("Aproximación:", resultado)
+except Exception as e:
+    print("Error:", e)
+
+
+
+
+# Interpretación:  La aproximación de la integral falla debido a la discontinuidad en el punto x=0. El método de cuadratura gaussiana no es adecuado para funciones con discontinuidades, ya que no puede manejar adecuadamente el comportamiento de la función en esos puntos. Esto resalta la importancia de considerar las propiedades de la función al elegir un método de integración numérica.
+# La aproximación de la integral falla debido a la discontinuidad en el punto x=0. El método de cuadratura gaussiana no es adecuado para funciones con discontinuidades, ya que no puede manejar adecuadamente el comportamiento de la función en esos puntos. Esto resalta la importancia de considerar las propiedades de la función al elegir un método de integración numérica.
+
