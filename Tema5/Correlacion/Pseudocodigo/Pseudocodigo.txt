@@ -1,0 +1,16 @@
+Entrada: listas x[], y[] de tamaño n
+
+Calcular sum_x = sum(x)
+Calcular sum_y = sum(y)
+Calcular sum_x2 = sum(x[i]^2)
+Calcular sum_y2 = sum(y[i]^2)
+Calcular sum_xy = sum(x[i]*y[i])
+
+Numerador = n*sum_xy - sum_x*sum_y
+Denominador = sqrt((n*sum_x2 - sum_x^2) * (n*sum_y2 - sum_y^2))
+
+r = Numerador / Denominador
+
+Salida: r
+
+
