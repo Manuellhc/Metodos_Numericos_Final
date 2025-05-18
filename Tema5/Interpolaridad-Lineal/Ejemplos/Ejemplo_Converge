@@ -1,0 +1,35 @@
+'''
+Enunciado: 
+enemos dos puntos de una función: (2, 4) y (6, 8). Estima el valor de la función en x=4 utilizando interpolación lineal.
+ 
+Objetivo:
+Usar interpolación lineal para encontrar el valor de la función en un punto intermedio.
+
+'''
+def interpolacion_lineal(x0, y0, x1, y1, x):
+    if x0 == x1:
+        raise ValueError("x0 y x1 no pueden ser iguales.")
+    pendiente = (y1 - y0) / (x1 - x0)
+    return y0 + pendiente * (x - x0)
+
+x0, y0 = 2, 4
+x1, y1 = 6, 8
+x = 4
+y = interpolacion_lineal(x0, y0, x1, y1, x)
+print("Valor estimado:", y)
+
+
+
+
+
+
+
+
+
+
+
+# Interpretación: El código implementa un método de interpolación lineal para estimar el valor de una función en un punto intermedio dado dos puntos conocidos.
+# El resultado es el valor estimado de la función en x=4 basado en los puntos (2, 4) y (6, 8).
+
+
+

@@ -1,0 +1,6 @@
+Entrada: x0, y0, x1, y1, x
+Si x0 == x1:
+    Retornar Error (división por cero)
+Calcular pendiente = (y1 - y0) / (x1 - x0)
+Calcular y = y0 + pendiente * (x - x0)
+Salida: y
