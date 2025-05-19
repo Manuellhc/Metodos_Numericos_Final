@@ -1,0 +1,46 @@
+'''
+Enunciado: 
+Dado el conjunto de datos:
+   x=[1,2,3,4,5],y=[2,8,18,32,50]
+
+Ajustar una línea recta a los datos usando mínimos cuadrados.
+ 
+Objetivo:
+Intentar ajustar una línea recta aunque los datos sigan una relación no lineal.
+
+'''
+def ajuste_minimos_cuadrados(x, y):
+    n = len(x)
+    sum_x = sum(x)
+    sum_y = sum(y)
+    sum_x2 = sum(xi**2 for xi in x)
+    sum_xy = sum(x[i]*y[i] for i in range(n))
+
+    denominador = n * sum_x2 - sum_x**2
+    if denominador == 0:
+        raise ValueError("Denominador cero, no se puede calcular la regresión")
+
+    b = (n * sum_xy - sum_x * sum_y) / denominador
+    a = (sum_y / n) - b * (sum_x / n)
+
+    return a, b
+
+x = [1, 2, 3, 4, 5]
+y = [2, 8, 18, 32, 50]
+
+a, b = ajuste_minimos_cuadrados(x, y)
+print(f"Recta ajustada: y = {a:.2f} + {b:.2f}x")
+
+y_ajustado = [a + b*xi for xi in x]
+print("Valores ajustados:", y_ajustado)
+
+
+
+
+
+
+
+# Interpretación:Aunque la recta ajustada aproxima los valores, el ajuste no es muy preciso porque la relación verdadera es cuadrática. El modelo lineal no captura la curvatura, por lo que el error puede ser alto.
+# El código implementa el método de mínimos cuadrados para ajustar una línea recta a un conjunto de datos, calculando los coeficientes a y b de la ecuación y = a + bx.
+
+

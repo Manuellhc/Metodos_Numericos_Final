@@ -1,0 +1,11 @@
+Entrada: listas x[], y[] de tamaño n
+
+Calcular sum_x = sum(x)
+Calcular sum_y = sum(y)
+Calcular sum_x2 = sum(x[i]^2)
+Calcular sum_xy = sum(x[i]*y[i])
+
+Calcular b = (n*sum_xy - sum_x*sum_y) / (n*sum_x2 - sum_x^2)
+Calcular a = (sum_y/n) - b*(sum_x/n)
+
+Salida: coeficientes a, b
