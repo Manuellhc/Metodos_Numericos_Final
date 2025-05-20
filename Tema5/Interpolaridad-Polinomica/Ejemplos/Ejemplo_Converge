@@ -1,0 +1,38 @@
+'''
+Enunciado: 
+Dado los puntos (1, 2), (2, 3), (3, 5), encontrar el valor interpolado en x=2.5
+ 
+Objetivo:
+Utilizar interpolación polinómica para estimar el valor de la función en x=2.5.
+
+
+
+'''
+# Importar la biblioteca necesaria
+import numpy as np
+# Definir la función de interpolación de Lagrange
+def interpolacion_lagrange(x_puntos, y_puntos, x):
+    total = 0
+    n = len(x_puntos)
+    for j in range(n):
+        term = y_puntos[j]
+        for m in range(n):
+            if m != j:
+                term *= (x - x_puntos[m]) / (x_puntos[j] - x_puntos[m])
+        total += term
+    return total
+
+x_puntos = [1, 2, 3]
+y_puntos = [2, 3, 5]
+x = 2.5
+resultado = interpolacion_lagrange(x_puntos, y_puntos, x)
+print("Valor interpolado:", resultado)
+
+
+
+
+
+
+# Interpretación: El código implementa el método de interpolación de Lagrange para estimar el valor de una función en un punto dado.
+# El resultado es el valor interpolado en x=2.5 basado en los puntos dados.
+

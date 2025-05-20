@@ -1,0 +1,54 @@
+'''
+Enunciado: 
+Dado los puntos equidistantes en el intervalo [-1, 1] de la función F(X)= 1/1+25X^2 utilizar interpolación polinómica de alto grado para aproximar la función.
+ 
+Objetivo:
+Observar el comportamiento del polinomio interpolador en los extremos del intervalo.
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return 1 / (1 + 25 * x**2)
+
+# Puntos equidistantes
+x_puntos = np.linspace(-1, 1, 11)
+y_puntos = f(x_puntos)
+
+# Polinomio interpolador
+def interpolacion_lagrange(x_puntos, y_puntos, x):
+    total = 0
+    n = len(x_puntos)
+    for j in range(n):
+        term = y_puntos[j]
+        for m in range(n):
+            if m != j:
+                term *= (x - x_puntos[m]) / (x_puntos[j] - x_puntos[m])
+        total += term
+    return total
+
+# Evaluación
+x_vals = np.linspace(-1, 1, 200)
+y_vals = [interpolacion_lagrange(x_puntos, y_puntos, xi) for xi in x_vals]
+
+# Gráfica
+plt.plot(x_vals, f(x_vals), label='Función original')
+plt.plot(x_vals, y_vals, label='Interpolación polinómica')
+plt.legend()
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+# Interpretación: El código implementa un método de interpolación polinómica de Lagrange para aproximar la función F(X) = 1/(1 + 25X^2) utilizando puntos equidistantes en el intervalo [-1, 1].
+# El resultado es una gráfica que muestra la función original y el polinomio interpolador, evidenciando el fenómeno de oscilación en los extremos del intervalo.
+#La gráfica muestra oscilaciones significativas en los extremos del intervalo, conocidas como el fenómeno de Runge.
+#La interpolación polinómica de alto grado con puntos equidistantes puede llevar a grandes errores en los extremos del intervalo. Es preferible utilizar otros métodos, como interpolación por splines, en estos casos.

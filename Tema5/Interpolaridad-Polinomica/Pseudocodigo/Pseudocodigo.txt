@@ -1,0 +1,6 @@
+Entrada: Lista de puntos (x0, y0), (x1, y1), ..., (xn, yn), valor x
+Inicializar P(x) = 0
+Para j desde 0 hasta n:
+    Calcular l_j(x) = Producto para m ≠ j de (x - x_m) / (x_j - x_m)
+    P(x) += y_j * l_j(x)
+Salida: P(x)
