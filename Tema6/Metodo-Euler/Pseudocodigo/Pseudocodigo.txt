@@ -1,0 +1,20 @@
+Entrada:
+    - Función vectorial f(t, Y): representa el sistema de EDOs
+    - Vector de condiciones iniciales Y0
+    - Intervalo de tiempo [t0, tf]
+    - Tamaño de paso h
+
+Inicializar:
+    - t = t0
+    - Y = Y0
+
+Mientras t <= tf:
+    - Calcular Y = Y + h * f(t, Y)
+    - Incrementar t = t + h
+    - Almacenar (t, Y) para análisis posterior
+
+Salida:
+    - Lista de pares (t, Y) que aproximan la solución del sistema
+
+
+

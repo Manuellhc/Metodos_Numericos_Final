@@ -1,0 +1,85 @@
+'''
+Enunciado: 
+Considera el sistema de ecuaciones diferenciales que modela un oscilador armónico simple:
+
+x' = v
+v' = -x
+
+
+con condiciones iniciales x(0) = 1, v(0) = 0. Utiliza el método de Euler para aproximar la solución en el intervalo [0, 10] con un paso h=0.1.
+ 
+Objetivo:   
+Aplicar el método de Euler para aproximar la solución del sistema y comparar con la solución analítica.
+
+
+
+
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+
+def euler_system(f, t0, tf, Y0, h):
+    t_values = [t0]
+    Y_values = [Y0]
+    t = t0
+    Y = np.array(Y0, dtype=float)
+    
+    while t < tf:
+        Y = Y + h * np.array(f(t, Y))
+        t += h
+        t_values.append(t)
+        Y_values.append(Y.copy())
+    
+    return np.array(t_values), np.array(Y_values)
+
+def oscillator(t, Y):
+    x, v = Y
+    dxdt = v
+    dvdt = -x
+    return [dxdt, dvdt]
+
+# Condiciones iniciales
+t0 = 0
+tf = 10
+Y0 = [1, 0]
+h = 0.1
+
+t_values, Y_values = euler_system(oscillator, t0, tf, Y0, h)
+
+# Solución analítica para comparación
+x_exact = np.cos(t_values)
+v_exact = -np.sin(t_values)
+
+# Gráficas
+plt.figure(figsize=(12, 5))
+
+# Posición
+plt.subplot(1, 2, 1)
+plt.plot(t_values, Y_values[:, 0], label='Euler x(t)', marker='o', markersize=4)
+plt.plot(t_values, x_exact, label='Exacto x(t)', linestyle='--')
+plt.title('Posición vs Tiempo')
+plt.xlabel('Tiempo')
+plt.ylabel('Posición')
+plt.legend()
+plt.grid(True)
+
+# Velocidad
+plt.subplot(1, 2, 2)
+plt.plot(t_values, Y_values[:, 1], label='Euler v(t)', marker='o', markersize=4)
+plt.plot(t_values, v_exact, label='Exacto v(t)', linestyle='--')
+plt.title('Velocidad vs Tiempo')
+plt.xlabel('Tiempo')
+plt.ylabel('Velocidad')
+plt.legend()
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+# Interpretación: El código implementa el método de Euler para aproximar la solución de un sistema de ecuaciones diferenciales que describe un oscilador armónico simple.
+# Interpretación: El método de Euler proporciona una aproximación razonable para sistemas con soluciones suaves en intervalos de tiempo cortos. Sin embargo, la precisión disminuye con el tiempo, y se recomienda utilizar métodos más precisos para intervalos más largos o sistemas más complejos.
