@@ -1,5 +1,7 @@
 TEMA 1: Fundamentos de Métodos Numéricos
 
+[Carpeta tema1](https://github.com/Manuellhc/Metodos_Numericos_Final/tree/main/Tema1)
+
     Los métodos numéricos son herramientas matemáticas que permiten encontrar soluciones aproximadas a problemas complejos que no pueden resolverse analíticamente. Estudian procedimientos algorítmicos que permiten obtener valores aproximados de soluciones a problemas matemáticos como ecuaciones algebraicas, integrales, derivadas, etc.
 
     Subtemas:
@@ -13,6 +15,7 @@ TEMA 1: Fundamentos de Métodos Numéricos
     Condicionamiento y Estabilidad: El condicionamiento indica qué tan sensible es un problema al error en los datos de entrada. La estabilidad se refiere a la sensibilidad del algoritmo al error de redondeo.
 
 TEMA 2: Solución Numérica de Ecuaciones
+[Carpeta tema2](https://github.com/Manuellhc/Metodos_Numericos_Final/tree/main/Tema2)
 
     Trata sobre encontrar aproximaciones para las raíces de ecuaciones no lineales.
 
@@ -27,6 +30,7 @@ TEMA 2: Solución Numérica de Ecuaciones
     Método de Punto Fijo: Requiere transformar la ecuación en x = g(x). Puede no converger si g(x) no está bien elegida.
 
 TEMA 3: Sistemas de Ecuaciones Lineales
+[Carpeta tema3](https://github.com/Manuellhc/Metodos_Numericos_Final/tree/main/Tema3)
 
     Permite resolver sistemas de la forma Ax = b, donde A es una matriz de coeficientes.
 
@@ -41,6 +45,7 @@ TEMA 3: Sistemas de Ecuaciones Lineales
     Método de Gauss-Seidel: Similar al Jacobi pero mejora la convergencia utilizando los valores recientes en cada iteración.
 
 TEMA 4: Diferenciación e Integración Numérica
+[Carpeta tema4](https://github.com/Manuellhc/Metodos_Numericos_Final/tree/main/Tema4)
 
     Permite calcular derivadas e integrales cuando no es posible hacerlo analíticamente.
 
@@ -57,6 +62,7 @@ TEMA 4: Diferenciación e Integración Numérica
     Cuadratura Gaussiana: Usa puntos y pesos óptimos para integrar con gran precisión, incluso con pocos puntos.
 
 TEMA 5: Interpolación y Ajuste de Funciones
+[Carpeta tema5](https://github.com/Manuellhc/Metodos_Numericos_Final/tree/main/Tema5)
 
     Busca obtener funciones que representen un conjunto de datos.
 
@@ -71,6 +77,7 @@ TEMA 5: Interpolación y Ajuste de Funciones
     Correlación y Mínimos Cuadrados: Evalúa la relación entre variables y ajusta funciones minimizando el error cuadrático.
 
 TEMA 6: Solución de Ecuaciones Diferenciales Ordinarias (EDO)
+[Carpeta tema6](https://github.com/Manuellhc/Metodos_Numericos_Final/tree/main/Tema6)
 
     Permite modelar fenómenos dinámicos como el crecimiento poblacional o el movimiento de un péndulo.
 
