@@ -1,0 +1,8 @@
+Entrada: f(t, y), y0, t0, tf, h
+Inicializar t = t0, y = y0
+Mientras t < tf:
+    y = y + h * f(t, y)
+    t = t + h
+    Almacenar (t, y)
+
+

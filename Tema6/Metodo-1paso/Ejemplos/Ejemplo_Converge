@@ -1,0 +1,40 @@
+'''
+Enunciado: 
+y'=-2y y(0)=1 paso h=0.1 intervalo [0,1]
+ 
+Objetivo:   
+Aproximar la solución de la EDO.
+
+
+
+'''
+def metodo_euler(f, y0, t0, tf, h):
+    t_values = [t0]
+    y_values = [y0]
+    t = t0
+    y = y0
+    while t < tf:
+        y += h * f(t, y)
+        t += h
+        t_values.append(t)
+        y_values.append(y)
+    return t_values, y_values
+
+def f(t, y):
+    return -2 * y
+
+resultado= metodo_euler(f, y0=1, t0=0, tf=1, h=0.1)
+
+print("Tiempo:", resultado[0])
+print("Valores de y:", resultado[1])
+
+
+
+
+
+
+
+
+# Interpretación: El método es exitoso ya que el sistema es suave y no presenta oscilaciones.
+
+

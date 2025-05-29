@@ -1,0 +1,43 @@
+'''
+Dado el conjunto de datos:
+    
+y'=100(1-y), y(0)=0 paso h=0.5 intervalo [0,1]
+
+Calcular el coeficiente de correlación.
+
+Objetivo: 
+
+Mostrar que el método diverge para EDOs rígidas.
+'''
+def metodo_euler(f, y0, t0, tf, h):
+    t_values = [t0]
+    y_values = [y0]
+    t = t0
+    y = y0
+    while t < tf:
+        y += h * f(t, y)
+        t += h
+        t_values.append(t)
+        y_values.append(y)
+    return t_values, y_values
+
+def f(t, y):
+    return 100 * (1 - y)
+
+
+resultado = metodo_euler(f, y0=0, t0=0, tf=1, h=0.5)
+print("Tiempo:", resultado[0])
+print("Valores de y:", resultado[1])
+
+
+
+
+
+
+
+
+
+
+
+
+# Interpretación:El método de Euler falla con ecuaciones rígidas y requiere pasos muy pequeños o métodos más avanzados.
